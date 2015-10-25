@@ -1,2 +1,15 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>Welcome to DengJiaXing's Blog</h1>
+<% @posts.each do |post|%>
+  <h2><%=link_to post.title,post%></h2>h2>
+  <p>
+  	<i>-<%=time_ago_in_words post.created_at%>ago</i>
+  </p>
+  <p>
+  	<%=truncate post.text%>
+  </p>
+  <% end %>
+
+  <p>
+  	<%=link_to "New Post",new_post_path%>
+  </p>
+
